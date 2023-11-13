@@ -11,7 +11,7 @@ export const AboutPage = () => {
       <NavBar />
       <Container sx={{ py: 8 }} maxWidth="md">
         <PageTitle title="About" description="Personal Task Management App" />
-        <Typography variant="h6" component="h2" gutterBottom>
+        <Typography variant="h5" component="h2" gutterBottom>
           My Board is a user-friendly and intuitive application designed to help individuals efficiently organize and
           manage their daily tasks, enhancing productivity and time management. This feature-rich application provides
           users with a seamless experience for creating, tracking, and completing tasks with ease.

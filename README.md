@@ -4,11 +4,9 @@ The Personal Task Manager is a user-friendly and intuitive application designed 
 
 ## Key Features
 
-Intuitive Task Creation
+1. **Intuitive Task Creation:**
 
-**Intuitive Task Creation:**
-
-- Users can effortlessly create new tasks with detailed descriptions, due dates, priorities, and categorizations, ensuring clarity and organization.
+   - Users can effortlessly create new tasks with detailed descriptions, due dates, priorities, and categorizations, ensuring clarity and organization.
 
 2. **User-Friendly Interface:**
 
