@@ -4,20 +4,23 @@ import useConfig from "../../components/useConfig";
 import logo from "../../logo.svg";
 
 import { styled } from "@mui/material/styles";
-import { Grid, Paper, Box, Typography, Container } from "@mui/material";
+import { Grid, Paper, Box, Typography, Container, Fab } from "@mui/material";
 import { Link } from "react-router-dom";
 import { TasksList } from "../../components/TasksList";
+import AddIcon from "@mui/icons-material/Add";
 
 import axios from "axios";
 import { Profile } from "src/components/Profile";
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorIcon from "@mui/icons-material/Error";
+import { TaskForm } from "src/components/TaskForm";
 
 export default function MainPage() {
   const { app } = useConfig();
 
   const [healthStatus, setHealthStatus] = useState(false);
+  const [openForm, setOpenForm] = useState(false);
 
   const checkHealthStatus = async () => {
     try {
@@ -51,6 +54,7 @@ export default function MainPage() {
           )}
         </Typography>
       </header>
+      <TaskForm openForm={openForm} setOpenForm={setOpenForm} />
       <Container sx={{ marginTop: 2, marginBottom: 2 }}>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
@@ -87,6 +91,9 @@ export default function MainPage() {
             <Item elevation={8}>
               <Typography variant="h5">Current tasks</Typography>
               <TasksList filteredStatus="Current" />
+              <Fab color="primary" size="small" aria-label="add" onClick={() => setOpenForm(true)}>
+                <AddIcon />
+              </Fab>
             </Item>
           </Grid>
         </Grid>
