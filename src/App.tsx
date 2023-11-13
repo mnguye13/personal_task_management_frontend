@@ -1,6 +1,6 @@
 import "./App.css";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import useConfig from "./components/useConfig";
@@ -12,6 +12,9 @@ import { NewsPage } from "./browser/pages/NewsPage";
 import { LoginPage } from "./browser/pages/LoginPage";
 import { AboutPage } from "./browser/pages/AboutPage";
 import { Typography, Link, Container, Box, CssBaseline } from "@mui/material";
+import { SignUpPage } from "./browser/pages/SignUpPage";
+import { ConfirmSignUpPage } from "./browser/pages/ConfirmSignUpPage";
+import { ProtectedRoute } from "./browser/pages/ProtectedRoute";
 
 /**
  * Our Web Application
@@ -32,6 +35,7 @@ function Copyright() {
 
 export default function App() {
   const { app } = useConfig();
+
   return (
     <>
       <Box
@@ -46,15 +50,16 @@ export default function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <Route exact path="/">
-            <MainPage />
+          <Route path="/signup">
+            <SignUpPage />
           </Route>
-          <Route path="/report">
-            <ReportPage />
+          <Route path="/confirmsignup">
+            <ConfirmSignUpPage />
           </Route>
-          <Route path="/tasks">
-            <TasksPage />
-          </Route>
+          <ProtectedRoute exact path="/" component={MainPage} />
+          <ProtectedRoute path="/dashboard" component={MainPage} />
+          <ProtectedRoute path="/report" component={ReportPage} />
+          <ProtectedRoute path="/tasks" component={TasksPage} />
           <Route path="/news">
             <NewsPage />
           </Route>

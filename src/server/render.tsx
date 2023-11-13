@@ -15,10 +15,13 @@ import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { newsApi } from "src/components/configs/newsApiSlice";
 import { tasksApi } from "src/components/configs/tasksApiSlice";
+import userReducer from "src/components/configs/usersSlice";
+import AuthProvider from "src/browser/AuthProvider";
 
 const rootReducer = combineReducers({
   [newsApi.reducerPath]: newsApi.reducer,
   [tasksApi.reducerPath]: tasksApi.reducer,
+  user: userReducer,
 });
 
 const store = configureStore({
@@ -36,7 +39,9 @@ export default async function render(_event: APIGatewayEvent): Promise<string> {
     <ConfigContext.Provider value={config}>
       <Provider store={store}>
         <StaticRouter basename={config.app.URL} location={_event.path}>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </StaticRouter>
       </Provider>
     </ConfigContext.Provider>,
