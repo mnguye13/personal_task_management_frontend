@@ -1,4 +1,5 @@
----
+org: mnguye13
+app: serverless-react-boilerplate
 service: serverless-react-boilerplate
 frameworkVersion: "3"
 useDotenv: true
@@ -8,7 +9,7 @@ disabledDeprecations:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   region: ${opt:region, 'us-east-1'}
   stage: ${opt:stage, 'dev'}
   memorySize: 512
