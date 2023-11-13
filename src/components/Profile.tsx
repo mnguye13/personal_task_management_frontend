@@ -23,7 +23,7 @@ export const Profile = () => {
       <Typography>UID: {user.sub}</Typography>
       <Typography>Department:</Typography>
       <Typography>Postition:</Typography>
-      <Button variant="contained" onClick={() => handleSignout()}>
+      <Button variant="contained" color="success" onClick={() => handleSignout()}>
         Sign out
       </Button>
     </Box>

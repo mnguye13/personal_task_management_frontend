@@ -211,7 +211,7 @@ export function TasksList({ filteredStatus }: { filteredStatus: string | null })
           })}
         </List>
       ) : (
-        <Typography>No tasks</Typography>
+        <Typography>No tasks to do</Typography>
       )}
     </Container>
   );
