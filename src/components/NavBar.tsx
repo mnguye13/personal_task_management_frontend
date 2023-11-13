@@ -7,7 +7,7 @@ export const NavBar = () => {
   return (
     <AppBar position="static" sx={{ backgroundColor: "#222" }}>
       <Toolbar>
-        <Button sx={{ color: "white" }} variant="text" onClick={() => history.push("/")}>
+        <Button sx={{ color: "white" }} variant="text" onClick={() => history.push("/dashboard")}>
           <Typography>My Board</Typography>
         </Button>
       </Toolbar>

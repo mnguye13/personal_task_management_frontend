@@ -19,6 +19,8 @@ import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { newsApi } from "src/components/configs/newsApiSlice";
 import { tasksApi } from "src/components/configs/tasksApiSlice";
+import userReducer from "src/components/configs/usersSlice";
+import AuthProvider from "./AuthProvider";
 
 const config = (window as any).__CONFIG__ as Config;
 delete (window as any).__CONFIG__;
@@ -29,6 +31,7 @@ const defaultTheme = createTheme();
 const rootReducer = combineReducers({
   [newsApi.reducerPath]: newsApi.reducer,
   [tasksApi.reducerPath]: tasksApi.reducer,
+  user: userReducer,
 });
 
 const store = configureStore({
@@ -44,7 +47,9 @@ const render = () => {
         <Provider store={store}>
           <ThemeProvider theme={defaultTheme}>
             <BrowserRouter basename={basename}>
-              <App />
+              <AuthProvider>
+                <App />
+              </AuthProvider>
             </BrowserRouter>
           </ThemeProvider>
         </Provider>
